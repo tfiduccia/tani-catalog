@@ -58,7 +58,7 @@
       type: "service"
     - variable: "TEST_CERTIFICATE"
       label: "Certificate"
-      required: false
+      required: true
       default: "rancher.rocks"
       type: "certificate"
     - variable: "TEST_UNKNOWN"
