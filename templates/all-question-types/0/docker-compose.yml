@@ -13,4 +13,4 @@ all-question-types:
     test.float: ${TEST_FLOAT}
     test.boolean: ${TEST_BOOLEAN}
     test.service: ${TEST_SERVICE}
-    test.certificate: ${TEST_CERTIFICATE}
+    test.certificate: ${TEST_CERTIFICATE}?required=true
