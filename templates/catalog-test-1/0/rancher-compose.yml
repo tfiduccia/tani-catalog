@@ -1,9 +1,9 @@
 .catalog:
-  name: "All Question Types"
-  version: "1.0.0"
-  description: "All the things"
-  uuid: all-question-types-0
-  minimum_rancher_version: v0.46.0
+  name: “changing name“
+  version: “2.0.0”
+  description: “Special character é“
+  uuid: required-question-types-0
+  minimum_rancher_version: v0.56.0
   questions:
     - variable: "TEST_STRING"
       label: "String"
