@@ -1,5 +1,5 @@
 all-question-types:
-  image: hello-world
+  image: busybox
   labels:
     io.rancher.container.start_once: true
   command: 'su -c "sleep 20 && exec /bootstrap-hdfs.sh" hdfs'
