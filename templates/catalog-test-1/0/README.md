@@ -3,4 +3,6 @@
 
 ### Info:
 
- This template has one question of each type.
+Going to test multiple things including editing different files to see if they update properly.  This is the readme update.
+
+Added spaces above for easier readablity.  How about a special character é.
