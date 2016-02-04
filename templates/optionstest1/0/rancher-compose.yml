@@ -1,0 +1,13 @@
+.catalog:
+  name: "All the options”
+  version: "1.0.0"
+  description: "All the options”
+  uuid: option-0
+  minimum_rancher_version: v0.46.0
+  questions:
+    - variable: “TEST_STRING”
+      label: “String”
+      description: “This is a string field”
+      required: false
+      default: "rancher.rocks"
+      type: “string”
