@@ -3,6 +3,22 @@ advanced-options:
   tty: true
   ports:
   - 80:8080/tcp
+  dns:
+  - 1.1.1.1
+  entrypoint:
+  - /entrypoint
+  volumes:
+  - tani:/taniabc
+  stdin_open: true
+  volume_driver: volumedriver
+  dns_search:
+  - rancher.com
+  domainname: domainname
+  environment:
+    foo: bar
+  command:
+  - /command
+  user: user
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
