@@ -2,7 +2,7 @@
   name: “Different version name“
   version: “2.0.0”
   description: “Different version description“
-  uuid: required-question-types-0
+  uuid: advanced—options0
   minimum_rancher_version: v0.56.0
   questions:
     - variable: "TEST_STRING"

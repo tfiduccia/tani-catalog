@@ -1,6 +1,6 @@
-# Changing some options
+# Adding advanced options
 
 
 ### Info:
 
-Trying to change the docker compose yml to include some options that are not labels.
+Adding advanced options to ensure you can add them through the catalog.  All labels and options should be set when this is done.

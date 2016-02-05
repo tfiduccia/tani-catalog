@@ -1,4 +1,4 @@
-all-question-types:
+advanced-options:
   image: quay.io/rancher/authorized
   tty: true
   ports:
