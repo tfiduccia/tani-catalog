@@ -6,6 +6,8 @@ advanced-options:
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
+    io.rancher.container.requested_ip: 10.40.1.1
+    io.rancher.container.hostname_override: container_name
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
 
