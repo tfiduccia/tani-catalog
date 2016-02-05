@@ -1,8 +1,8 @@
 .catalog:
-  name: "All Question Types"
+  name: “Options”
   version: "1.0.0"
-  description: "All the things"
-  uuid: all-question-types-0
+  description: "All the options”
+  uuid: options-0
   minimum_rancher_version: v0.46.0
   questions:
     - variable: "TEST_CERTIFICATE"

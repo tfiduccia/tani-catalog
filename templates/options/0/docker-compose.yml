@@ -1,7 +1,4 @@
-all-question-types:
-  image: busybox
-  labels:
-    io.rancher.container.start_once: true
-  command: 'su -c "sleep 20 && exec /bootstrap-hdfs.sh" hdfs'
+options:
+  image: ubuntu
   labels:
     test.certificate: ${TEST_CERTIFICATE}
