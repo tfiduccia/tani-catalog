@@ -1,8 +1,6 @@
-# All Question Types
+# Changing some options
 
 
 ### Info:
 
-Going to test multiple things including editing different files to see if they update properly.  This is the readme update.
-
-Added spaces above for easier readablity.  How about a special character é.
+Trying to change the docker compose yml to include some options that are not labels.
