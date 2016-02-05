@@ -1,5 +1,5 @@
-name: Required Cert Field
+name: options
 description: |
-  This template has a required cert field
+  This template has a options
 version: 1.0.0
 category: Test
