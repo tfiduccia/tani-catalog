@@ -1,6 +1,8 @@
 all-question-types:
   image: quay.io/rancher/authorized
   tty: true
+  ports:
+  - 80:8080/tcp
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
