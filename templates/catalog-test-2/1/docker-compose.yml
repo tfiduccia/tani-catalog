@@ -19,8 +19,8 @@ advanced-options:
   command:
   - /command
   user: user
-  links:
-  - simpleservice:bbb
+  external_links:
+  - Default/simpleservice:aaa
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
