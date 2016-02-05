@@ -1,6 +1,6 @@
-# All Question Types
+# All Options
 
 
 ### Info:
 
- This template has one question of each type.
+Testing some options

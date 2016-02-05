@@ -1,4 +1,7 @@
-options:
-  image: ubuntu
+options-all-the:
+  image: quay.io/rancher/authorized
   labels:
-    test.certificate: ${TEST_CERTIFICATE}
+    io.rancher.container.pull_image: always
+    io.rancher.container.start_once: ‘true’
+    test.string: ${TEST_STRING}
+    test.multiline: ${TEST_MULTILINE}

@@ -2,18 +2,19 @@
   name: “Options”
   version: "1.0.0"
   description: "All the options”
-  uuid: options-0
-  minimum_rancher_version: v0.46.0
+  uuid: options-all-the-0
+  minimum_rancher_version: v0.56.0
   questions:
-    - variable: "TEST_CERTIFICATE"
-      label: "Certificate"
-      description: “This is a queried test cert field”
-      required: true
-      default: "rancher.rocks"
-      type: "certificate"
-    - variable: "TEST_UNKNOWN"
-      label: "Unknown"
+    - variable: "TEST_STRING"
+      label: "String"
       required: false
-      default: "wha?"
-      type: "unknown"
+      default: "hello"
+      type: "string"
+    - variable: "TEST_MULTILINE"
+      label: "Multi-Line"
+      required: false
+      type: "multiline"
+      default: |
+        Hello
+        World
 
