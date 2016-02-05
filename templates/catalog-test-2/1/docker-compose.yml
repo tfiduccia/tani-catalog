@@ -1,7 +1,8 @@
-options-all-the:
+all-question-types:
   image: quay.io/rancher/authorized
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
+
