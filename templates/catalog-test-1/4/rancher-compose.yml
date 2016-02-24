@@ -1,0 +1,21 @@
+.catalog:
+  name: “Different version name“
+  version: “5.0.0”
+  description: “Different version description“
+  uuid: required-question-types-0
+  minimum_rancher_version: v0.56.0
+  questions:
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      type: "string"
+    - variable: "TEST_MULTILINE"
+      label: "Multi-Line"
+      required: false
+      type: "multiline"
+    - variable: "TEST_INT"
+      label: "Integer"
+      required: false
+      type: "int"
+
+
