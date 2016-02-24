@@ -1,6 +1,6 @@
 .catalog:
   name: “Different version name“
-  version: “5.0.0”
+  version: “4.0.0”
   description: “Different version description“
   uuid: required-question-types-0
   minimum_rancher_version: v0.56.0
@@ -8,6 +8,7 @@
     - variable: "TEST_STRING"
       label: "String"
       required: false
+      default: “goodbye”
       type: "string"
     - variable: "TEST_MULTILINE"
       label: "Multi-Line"
