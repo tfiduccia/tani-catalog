@@ -1,6 +1,6 @@
 .catalog:
   name: “Different version name“
-  version: “2.0.0”
+  version: “3.0.0”
   description: “Different version description“
   uuid: required-question-types-0
   minimum_rancher_version: v0.56.0
