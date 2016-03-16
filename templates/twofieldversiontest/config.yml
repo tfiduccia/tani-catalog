@@ -1,5 +1,5 @@
-name: Test
+name: Testing the named
 description: |
-  This template has a required cert field
+  This template has a required cert field aaaa
 version: 1.0.0
 category: Test
