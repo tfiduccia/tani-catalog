@@ -8,7 +8,7 @@
     - variable: "TEST_STRING"
       label: "String"
       required: false
-      default: goodbye
+      default: "goodbye"
       type: "string"
     - variable: "TEST_MULTILINE"
       label: "Multi-Line"

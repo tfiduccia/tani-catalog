@@ -1,0 +1,5 @@
+name: Required Cert Field
+description: |
+  This template has a required cert field
+version: 1.0.0
+category: Test
