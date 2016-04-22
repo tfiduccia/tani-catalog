@@ -3,7 +3,8 @@
   version: "1.0.0"
   description: "Services"
   uuid: health-check-0
-  minimum_rancher_version: v0.46.0healthcheckfail:
+  minimum_rancher_version: v0.46.0
+healthcheckfail:
   scale: 1
   health_check:
     port: 80
