@@ -1,0 +1,29 @@
+.catalog:
+  name: "Health check"
+  version: "1.0.0"
+  description: "Services"
+  uuid: health-check-0
+  minimum_rancher_version: v0.46.0healthcheckfail:
+  scale: 1
+  health_check:
+    port: 80
+    interval: 2000
+    recreate_on_quorum_strategy_config:
+      quorum: 1
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreateOnQuorum
+    request_line: 'GET "/404" "HTTP/1.1\r\nHost: blah.com"'
+    healthy_threshold: 2
+    response_timeout: 2000
+healthcheckpass:
+  scale: 1
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    request_line: 'GET "/" "HTTP/1.1\r\nHost: blah.com"'
+    healthy_threshold: 2
+    response_timeout: 2000

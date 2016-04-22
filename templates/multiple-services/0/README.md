@@ -1,6 +1,6 @@
-# All Question Types
+# Multiple Services
 
 
 ### Info:
 
- This template has one question of each type.
+ This gives examples of each type of Service.
