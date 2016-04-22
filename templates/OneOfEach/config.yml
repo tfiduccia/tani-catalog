@@ -1,6 +1,6 @@
-name: All Question Types
+name: Multiple services
 description: |
   This template has a question of each type
 version: 1.0.0
 category: Test
-projectURL: www.amazon.com
+
