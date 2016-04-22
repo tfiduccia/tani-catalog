@@ -1,0 +1,10 @@
+.catalog:
+  name: "Affinity rule check"
+  version: "1.0.0"
+  description: "Services"
+  uuid: affinity-test-0
+  minimum_rancher_version: v0.46.0
+servicerelyingonlable:
+  scale: 1
+Service1withlabel:
+  scale: 1

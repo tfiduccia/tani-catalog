@@ -1,0 +1,6 @@
+name: Affinity Test
+description: |
+  This template test affinity rules
+version: 1.0.0
+category: Test
+
