@@ -1,8 +1,7 @@
 all-question-types:
   image: busybox
   labels:
-    io.rancher.container.start_once: true
-  command: 'su -c "sleep 20 && exec /bootstrap-hdfs.sh" hdfs'
+    io.rancher.container.start_once: 'true'
   labels:
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
