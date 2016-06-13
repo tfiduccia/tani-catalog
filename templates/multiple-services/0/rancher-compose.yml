@@ -17,6 +17,8 @@ lb1:
     strategy: recreate
     response_timeout: 2000
     healthy_threshold: 2
+startedonce:
+  scale: 1
 ES1:
   external_ips:
   - 1.1.1.1
