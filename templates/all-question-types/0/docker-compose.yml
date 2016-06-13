@@ -11,6 +11,6 @@ all-question-types:
     test.enum: ${TEST_ENUM}
     test.int: ${TEST_INT}
     test.float: ${TEST_FLOAT}
-    test.boolean: ${TEST_BOOLEAN}
+    test.boolean: "${TEST_BOOLEAN}"
     test.service: ${TEST_SERVICE}
     test.certificate: ${TEST_CERTIFICATE}
