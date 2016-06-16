@@ -1,7 +1,13 @@
 all-question-types:
   image: busybox
+<<<<<<< HEAD
   labels:
     io.rancher.container.start_once: 'true'
+=======
+  tty: true
+  stdin_open: true
+  labels:
+>>>>>>> rancher/master
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
     test.password: ${TEST_PASSWORD}
