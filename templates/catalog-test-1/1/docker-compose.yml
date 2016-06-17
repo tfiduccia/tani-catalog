@@ -1,6 +1,13 @@
 all-question-types:
   image: busybox
+<<<<<<< HEAD
   labels:
+    io.rancher.container.start_once: 'true'
+=======
+  tty: true
+  stdin_open: true
+  labels:
+>>>>>>> rancher/master
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
     test.string: ${TEST_STRING}
