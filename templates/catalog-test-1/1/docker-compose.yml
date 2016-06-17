@@ -1,5 +1,5 @@
 all-question-types:
-  image: quay.io/rancher/authorized
+  image: busybox
   labels:
     io.rancher.container.pull_image: always
     io.rancher.container.start_once: ‘true’
