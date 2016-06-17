@@ -17,4 +17,9 @@
       default: |
         Hello
         World
+    - variable: "TEST_BOOLEAN"
+      label: "Boolean"
+      required: false
+      default: true
+
 
