@@ -1,0 +1,77 @@
+proxy:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/proxy:0.5.0
+  ports:
+    - "8080"
+  environment:
+    VCAP_SERVICES: '{"user-provided":[{"credentials":{"host":"http://workflowmanager:9080"},"name":"workflow-manager"},{"credentials":{"host":"http://sessionmanager:9082"},"name":"session-manager"},{"credentials":{"host":"http://notebooks:8888"},"name":"jupyter"},{"credentials":{"host":"http://rabbitmq:15674"},"name":"rabbitmq"},{"credentials":{"host":"http://frontend:80"},"name":"frontend"}]}'
+    DISABLE_OAUTH: "true"
+    FORCE_HTTPS: "false"
+    WM_AUTH_USER: "${WM_USERNAME}"
+    WM_AUTH_PASS: "${WM_PASSWORD}"
+  links:
+    - rabbitmq
+    - workflowmanager
+    - notebooks
+    - sessionmanager
+    - frontend
+frontend:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/frontend:0.5.0
+  environment:
+    - "API_HOST=https://${SEAHORSE_HOST}"
+    - "API_PORT=443"
+    - "SESSION_API_PORT=443"
+    - "MQ_USER=${RABBITMQ_USERNAME}"
+    - "MQ_PASS=${RABBITMQ_PASSWORD}"
+    - "SOCKETS_ADDRESS=https://${SEAHORSE_HOST}/"
+    - "NOTEBOOKS_HOST=https://${SEAHORSE_HOST}/jupyter"
+  links:
+    - rabbitmq
+    - workflowmanager
+    - notebooks
+    - sessionmanager
+sessionmanager:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/sessionmanager:0.5.0
+  hostname: sessionmanager
+  environment:
+    - "MQ_HOST=rabbitmq"
+    - "MQ_PORT=5672"
+    - "MQ_USER=${RABBITMQ_USERNAME}"
+    - "MQ_PASS=${RABBITMQ_PASSWORD}"
+    - "WM_HOST=workflowmanager"
+    - "WM_PORT=9080"
+    - "WM_AUTH_USER=${WM_USERNAME}"
+    - "WM_AUTH_PASS=${WM_PASSWORD}"
+    - "SESSION_EXECUTOR_PATH=/opt/docker/we.jar"
+    - "SESSION_EXECUTOR_DEPS_PATH=/opt/docker/we-deps.zip"
+    - "HADOOP_CONF_DIR=/opt/docker/yarn-remote-client"
+    - "SM_MQ_HOST=rabbitmq"
+    - "SM_MQ_PORT=5672"
+    - "TEMP_DIR=/tmp/seahorse/download"
+  links:
+    - rabbitmq
+    - workflowmanager
+notebooks:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/notebooks:0.5.0
+  environment:
+    - "WM_URL=http://workflowmanager:9080"
+    - "WM_AUTH_USER=${WM_USERNAME}"
+    - "WM_AUTH_PASS=${WM_PASSWORD}"
+    - "MQ_HOST=rabbitmq"
+    - "MQ_PORT=5672"
+    - "MQ_USER=${RABBITMQ_USERNAME}"
+    - "MQ_PASS=${RABBITMQ_PASSWORD}"
+    - "HEARTBEAT_INTERVAL=${NB_HEARTBEAT_INTERVAL}.0"
+    - "MISSED_HEARTBEAT_LIMIT=30"
+  links:
+    - rabbitmq
+    - workflowmanager
+workflowmanager:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/workflowmanager:0.5.0
+  environment:
+    - "WM_AUTH_USER=${WM_USERNAME}"
+    - "WM_AUTH_PASS=${WM_PASSWORD}"
+rabbitmq:
+  image: registry.tools.datawb.com/dswb-tools/seahorse/rabbitmq:0.5.0
+  environment:
+   - "RABBITMQ_USER=${RABBITMQ_USERNAME}"
+   - "RABBITMQ_PASS=${RABBITMQ_PASSWORD}"

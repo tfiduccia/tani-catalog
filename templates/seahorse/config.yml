@@ -1,0 +1,8 @@
+name: Seahorse
+description: |
+  Discover the Ease of Visual Programming Combined with the Power of Apache
+  Spark
+version: 0.5.0
+category: DSWB Tool
+maintainer: deepsense.io
+projectURL: http://seahorse.deepsense.io
