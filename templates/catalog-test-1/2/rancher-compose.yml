@@ -11,7 +11,7 @@
       default: "hello"
       type: "string"
     - variable: TEST_MULTILINE"
-      label: "Multi-Line"
+      label: Multi-Line123"
       required: false
       type: "multiline"
       default: |

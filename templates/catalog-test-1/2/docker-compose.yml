@@ -6,5 +6,4 @@ all-question-types:
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
     test.int: ${TEST_INT}
-	!@#$~%^*&(_++{}|":?><,.;'[]\
 
