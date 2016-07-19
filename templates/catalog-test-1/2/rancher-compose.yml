@@ -5,12 +5,12 @@
   uuid: required-question-types-0
   minimum_rancher_version: v0.56.0
   questions:
-    - variable: "TEST_STRING"
+	    - variable: "TEST_STRING"
       label: "String"
       required: false
       default: "hello"
       type: "string"
-    - variable: "TEST_MULTILINE"
+    - variable: TEST_MULTILINE"
       label: "Multi-Line"
       required: false
       type: "multiline"
