@@ -1,67 +1,34 @@
 .catalog:
-  name: Seahorse
-  version: 0.5.0
-  description: |
-    Discover the Ease of Visual Programming Combined with the Power of Apache
-    Spark.
-    The intuitive visual environment allows your team to build data-processing
-    workflows without the need to write any code. By dragging and dropping
-    blocks from the palette of available operations even less code savvy users
-    are able to design workflows containing steps such as: ETL, data
-    manipulation, clean-up and reports, even up to advanced predictive
-    analytics. Workflows exported from Seahorse are production‑ready and easy
-    to deploy on Apache Spark clusters.
-  minimum_rancher_version: v1.0.2
+  name: "AzureFile Volume"
+  version: "v0.0.1"
+  description: Create an Azure File Share Volume.
+  uuid: azurefile-volume:v0.0.1
   questions:
-    - variable: RABBITMQ_USERNAME
-      label: RabbitMQ username
-      description: |
-        Username for RabbitMQ.
-      type: string
-      default: rabbitmq
-    - variable: RABBITMQ_PASSWORD
-      label: RabbitMQ password
-      description: |
-        Password for RabbitMQ.
-      type: password
-      required: true
-
-    - variable: WM_USERNAME
-      label: Workflow Manager username
-      description: |
-        Username for Workflow Manager.
-      type: string
-      default: seahorse
-    - variable: WM_PASSWORD
-      label: Workflow Manager password
-      description: |
-        Password for Workflow Manager.
-      type: password
-      required: true
-
-    - variable: NB_HEARTBEAT_INTERVAL
-      label: Notebook heartbeat interval
-      description: |
-        Interval in seconds for the Notebook hearbeat.
-      type: string
-      default: 5
-
-    - variable: SEAHORSE_HOST
-      label: Seahorse host
-      description: |
-        External host that will serve Seahorse. E.g.: "sh-john.datawb.com".
+    - variable: name
+      label: Volume Name
       type: string
       required: true
-
-proxy:
-  scale: 1
-frontend:
-  scale: 1
-sessionmanager:
-  scale: 1
-notebooks:
-  scale: 1
-workflowmanager:
-  scale: 1
-rabbitmq:
-  scale: 1
+    - variable: uid
+      label: UID
+      type: string
+      description: UID for owner of mounted files.
+      required: true
+      default: '0'
+    - variable: gid
+      label: GID
+      type: string
+      description: GID for owner of mounted files.
+      required: true
+      default: '0'
+    - variable: filemode
+      label: File Mode
+      type: string
+      description: Mode for mounted files.
+      required: true
+      default: '0644'
+    - variable: dirmode
+      label: Directory Mode
+      type: string
+      description: Mode for directories (executable is important).
+      required: true
+      default: '0755'
