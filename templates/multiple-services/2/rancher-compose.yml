@@ -1,9 +1,9 @@
 .catalog:
   name: "Multiple services"
-  version: "1.0.2"
+  version: "1.0.10"
   description: "Services"
   uuid: mulitple-services-0
-  minimum_rancher_version: v1.3.0
+  minimum_rancher_version: v1.2.0-pre1
 Service-mysql:
   scale: 1
 lb1:

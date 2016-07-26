@@ -1,6 +1,6 @@
 .catalog:
   name: "Multiple services"
-  version: "1.0.0"
+  version: "1.0.1"
   description: "Services"
   uuid: mulitple-services-0
   minimum_rancher_version: v1.1.2
