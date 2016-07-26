@@ -3,7 +3,7 @@
   version: "1.0.2"
   description: "Services"
   uuid: mulitple-services-0
-  minimum_rancher_version: 1.0.0.10
+  minimum_rancher_version: v1.0.0.10
 Service-mysql:
   scale: 1
 lb1:
