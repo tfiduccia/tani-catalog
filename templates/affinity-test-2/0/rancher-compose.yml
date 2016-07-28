@@ -4,5 +4,5 @@
   description: "Services"
   minimum_rancher_version: v0.46.0
 serviceoneachhost:
-{}
+  scale: 1
 
