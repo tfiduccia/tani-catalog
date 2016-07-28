@@ -1,4 +1,4 @@
-# All Question Types
+# One of each question type
 
 
 ### Info:

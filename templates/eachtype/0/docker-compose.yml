@@ -1,4 +1,4 @@
-all-question-types:
+one-of-each-question-types:
   image: nginx
   labels:
     io.rancher.container.start_once: true

@@ -2,7 +2,6 @@
   name: "One of each question type"
   version: "1.0.0"
   description: "Description of one of each question type"
-  uuid: all-question-types-0
   minimum_rancher_version: v0.46.0
   questions:
     - variable: "TEST_STRING"
