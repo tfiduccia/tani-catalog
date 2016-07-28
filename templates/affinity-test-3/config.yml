@@ -1,0 +1,6 @@
+name: Affinity Test 3
+description: |
+  Puts service on host that has label foo=bar
+version: 1.0.0
+category: Test
+

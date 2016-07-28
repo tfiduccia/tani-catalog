@@ -1,0 +1,8 @@
+.catalog:
+  name: "Host with foo=bar"
+  version: "1.0.0"
+  description: "Services"
+  minimum_rancher_version: v0.46.0
+scheduledforhostwithfoobar:
+  scale: 1  
+
