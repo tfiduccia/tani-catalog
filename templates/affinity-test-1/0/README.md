@@ -3,4 +3,4 @@
 
 ### Info:
 
-  This template will test infinity rules.  You should have at least one host with a affinity rule (Label) foo=bar.
+  This template test two services.  First service has a label that is foo=bar.  The second service has scheduling rule to find host that container with label of foo=bar.  Because of this rule both services should be created on same host.
