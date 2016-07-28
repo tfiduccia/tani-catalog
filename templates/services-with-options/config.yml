@@ -1,0 +1,6 @@
+name: Services with options
+description: |
+  This template contains services with a bunch of different options checked.
+version: 1.0.0
+category: Test
+
