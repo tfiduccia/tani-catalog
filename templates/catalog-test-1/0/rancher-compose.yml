@@ -1,9 +1,8 @@
 .catalog:
-  name: “changing name“
-  version: “1.0.0”
-  description: “Special character é“
-  uuid: required-question-types-0
-  minimum_rancher_version: v0.56.0
+  name: "All Question Types"
+  version: "1.0.0"
+  description: "Special character test"
+  minimum_rancher_version: v0.46.0
   questions:
     - variable: "TEST_STRING"
       label: "String"
@@ -58,7 +57,7 @@
       type: "service"
     - variable: "TEST_CERTIFICATE"
       label: "Certificate"
-      required: true
+      required: false
       default: "rancher.rocks"
       type: "certificate"
     - variable: "TEST_UNKNOWN"
@@ -66,4 +65,3 @@
       required: false
       default: "wha?"
       type: "unknown"
-
