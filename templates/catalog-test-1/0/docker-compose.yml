@@ -1,4 +1,4 @@
-aall-question-types:
+all-question-types:
   image: busybox
   tty: true
   stdin_open: true
