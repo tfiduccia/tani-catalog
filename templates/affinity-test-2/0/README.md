@@ -3,4 +3,4 @@
 
 ### Info:
 
-  This template will test infinity rules.  You should have at least one host with a affinity rule (Label) foo=bar.
+  This template puts a service one on each host.
