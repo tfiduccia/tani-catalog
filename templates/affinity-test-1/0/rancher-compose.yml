@@ -1,5 +1,5 @@
 .catalog:
-  name: "Affinity rule check"
+  name: "Service Affinity rule check"
   version: "1.0.0"
   description: "Services"
   uuid: affinity-test-0
