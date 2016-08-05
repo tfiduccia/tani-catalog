@@ -17,6 +17,7 @@ healthcheckfail:
     request_line: 'GET "/404" "HTTP/1.1\r\nHost: blah.com"'
     healthy_threshold: 2
     response_timeout: 2000
+    reinitializing_timeout: 50000
 healthcheckpass:
   scale: 1
   health_check:
@@ -28,3 +29,4 @@ healthcheckpass:
     request_line: 'GET "/" "HTTP/1.1\r\nHost: blah.com"'
     healthy_threshold: 2
     response_timeout: 2000
+    reinitializing_timeout: 50000
