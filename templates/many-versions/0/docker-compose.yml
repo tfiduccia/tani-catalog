@@ -1,4 +1,4 @@
 many-versions:
-  image: busybox
+  image: nginx
   tty: true
   stdin_open: true
