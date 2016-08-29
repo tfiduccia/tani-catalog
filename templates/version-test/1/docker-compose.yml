@@ -2,3 +2,4 @@ version-test:
   image: nginx
   tty: true
   stdin_open: true
+  description: "Version 3"
