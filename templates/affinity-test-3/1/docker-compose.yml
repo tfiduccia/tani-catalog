@@ -1,0 +1,7 @@
+scheduledforhostwithfoobar:
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: foo=bar
+  tty: true
+  image: nginx
+  stdin_open: true
