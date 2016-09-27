@@ -1,6 +1,6 @@
-# Version Test
+# Extended Character Test 你好，世界
 
 
-### Info:
+### Info 你好，世界:
 
- This template has more than 9 versions.
+ This template is testing different characters and sets. 你好，世界
