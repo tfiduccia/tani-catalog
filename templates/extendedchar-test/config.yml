@@ -1,5 +1,6 @@
-name: Extended Character Test
+name: Extended Character Test 你好，世界
 description: |
-  This template has extended and international characters in it.  A test in progress
+  This template has extended and international characters in it.  "A test in progress"
+  你好，世界
 version: 1.0.0
 category: Test
