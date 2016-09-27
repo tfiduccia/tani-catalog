@@ -2,6 +2,6 @@
   name: "Version Test"
   version: "4.0.0"
   description: "More than 9 versions"
-  minimum_rancher_version: v1.2.0
+  minimum_rancher_version: v1.2.0-pre3
 version-test:
   scale: 1
