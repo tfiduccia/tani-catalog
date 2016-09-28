@@ -67,3 +67,4 @@
       type: "unknown"
 version-test:
   scale: 1 #this is a µ test
+  description: "this is a test"
