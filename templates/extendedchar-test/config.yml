@@ -1,6 +1,5 @@
-name: Test Ext Char 你好，世界
+name: Chinese Char test 你好，世界
 description: |
-  This template has extended and international characters in it.  "A test in progress"
-  你好，世界
+  This test is for testing Chinese characters  你好，世界
 version: 1.0.0
 category: 你好，世界
