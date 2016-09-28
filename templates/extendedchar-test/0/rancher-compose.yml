@@ -9,5 +9,61 @@
       required: false
       default: "你好，世界"
       type: "string"
+    - variable: "TEST_MULTILINE"
+      label: "Multi-Line 你好，世界"
+      required: false
+      type: "multiline"
+      default: |
+        你好
+        世界
+    - variable: "TEST_PASSWORD"
+      label: "Password 世界"
+      required: false
+      default: "世界"
+      type: "password"
+    - variable: "TEST_ENUM"
+      label: "Enum 世界"
+      required: false
+      options:
+        - 世界
+        - 你好
+        - dishwasher
+      default: "你好"
+      type: "enum"
+    - variable: "TEST_DATE"
+      label: "Date 你好"
+      required: false
+      default: "2015-07-25T19:55:00Z"
+      type: "date"
+    - variable: "TEST_INT"
+      label: "Integer 你好"
+      required: false
+      default: 42
+      type: "int"
+    - variable: "TEST_FLOAT"
+      label: "Float 你好"
+      required: false
+      default: 4.2
+      type: "float"
+    - variable: "TEST_BOOLEAN"
+      label: "Boolean 你好"
+      required: false
+      default: true
+      type: "boolean"
+    - variable: "TEST_SERVICE"
+      label: "Service 你好"
+      required: false
+      default: "kopf 你好"
+      type: "service"
+    - variable: "TEST_CERTIFICATE"
+      label: "Certificate 你好"
+      required: false
+      default: "rancher.rocks你好"
+      type: "certificate"
+    - variable: "TEST_UNKNOWN"
+      label: "Unknown"
+      required: false
+      default: "wha?"
+      type: "unknown"
 version-test:
   scale: 1 #this is a µ test
