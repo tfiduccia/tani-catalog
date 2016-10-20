@@ -1,0 +1,5 @@
+name: Maximum Version Test 
+description: |
+  These template tests the Maximum Version field for catalog templates
+version: 1.0.0
+category: test
