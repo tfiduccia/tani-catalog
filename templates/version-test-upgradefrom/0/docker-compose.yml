@@ -1,4 +1,3 @@
-version: '2'
 version-test:
   image: nginx
   tty: true
