@@ -3,5 +3,6 @@ version: '2'
   name: "Upgrade From Version test"
   version: "1.0.0"
   description: "This template has no upgradeFrom field so should be able to see it all the time"
+  minimum_rancher_version: v1.1.0
 version-test:
   scale: 1
