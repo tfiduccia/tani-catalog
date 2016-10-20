@@ -1,0 +1,5 @@
+name: Upgrade From Version Test 
+description: |
+  These template tests the upgradeFrom field for catalog templates
+version: 1.0.0
+category: test
