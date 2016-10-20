@@ -1,7 +1,9 @@
-.catalog:
-  name: "Maximum Version test"
-  version: "1.0.0"
-  description: "This template has no maximum_rancher_version field so should be able to see it all the time"
-  minimum_rancher_version: v1.1.0
-version-test:
-  scale: 1
+version: '2'
+services:
+  .catalog:
+    name: "Maximum Version test"
+    version: "1.0.0"
+    description: "This template has no maximum_rancher_version field so should be able to see it all the time"
+    minimum_rancher_version: v1.1.0
+  version-test:
+    scale: 1
