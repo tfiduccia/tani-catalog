@@ -1,3 +1,5 @@
+version: '2'
+services:
 version-test:
   image: nginx
   tty: true
