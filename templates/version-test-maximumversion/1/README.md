@@ -3,4 +3,4 @@
 
 ### Info:
 
- This template has more than 9 versions.
+ This template has a maximum version of 1.1.9999

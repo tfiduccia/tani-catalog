@@ -3,5 +3,6 @@
   version: "3.0.0"
   description: "More than 9 versions"
   minimum_rancher_version: v1.1.0
+  maximum_rancher_version: v1.1.9999
 version-test:
   scale: 1
