@@ -3,4 +3,4 @@
 
 ### Info:
 
- This template has a maximum version of 1.1.9999
+Should only be able to see in 1.1 versions.  Not in any 1.2.0 versions.

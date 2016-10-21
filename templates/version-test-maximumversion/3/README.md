@@ -3,4 +3,4 @@
 
 ### Info:
 
- This template has more than 9 versions.  This is the 4th version and should only be seen in version 1.2.0
+ Minimum value is v1.2.0-pre1 and max is 1.2.0.  You should be able to see in all 1.2.0 versions.

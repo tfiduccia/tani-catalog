@@ -3,4 +3,4 @@
 
 ### Info:
 
- This template has more than 9 versions.
+  Maximum rancher version is 1.2.0-pre1 so you should not see this in any version that is above the pre1 version.
