@@ -2,6 +2,6 @@
   name: "Version Test"
   version: "3.0.0"
   description: "More than 9 versions"
-  upgradeFrom: ">=2.0.0"
+  upgradeFrom: 2.0.0
 version-test:
   scale: 1
