@@ -2,5 +2,6 @@
   name: "Version Test"
   version: "4.0.0"
   description: "More than 9 versions"
+  upgrade_from: "!1.0.0"
 version-test:
   scale: 1
