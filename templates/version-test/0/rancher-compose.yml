@@ -1,3 +1,5 @@
+version: '2'
+services:
 .catalog:
   name: "Version Test"
   version: "1.0.0"
