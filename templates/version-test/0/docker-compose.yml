@@ -1,7 +1,5 @@
-version: '2'
-services:
-  version-test:
-    image: nginx
-    tty: true
+version-test:
+  image: nginx
+  tty: true
     stdin_open: true
  
