@@ -1,9 +1,9 @@
 version: '2'
-services:
 .catalog:
   name: "Version Test"
   version: "1.0.0"
   description: "More than 9 versions"
   minimum_rancher_version: v1.1.0
-version-test:
-  scale: 1
+services:
+  version-test:
+    scale: 1
