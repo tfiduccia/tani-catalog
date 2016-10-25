@@ -1,6 +1,6 @@
-# Version Test
+# Version 2 Test
 
 
 ### Info:
 
- This template has more than 9 versions.
+ This template tests version 2 of the yaml files
