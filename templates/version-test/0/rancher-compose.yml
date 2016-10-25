@@ -3,6 +3,5 @@
   version: "1.0.0"
   description: "More than 9 versions"
   minimum_rancher_version: v1.1.0
-services:
-  version-test:
-    scale: 1
+version-test:
+  scale: 1
