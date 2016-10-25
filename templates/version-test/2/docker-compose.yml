@@ -1,8 +1,10 @@
-version-test:
-  labels:
-    foo: bar
-  image: nginx
-  tty: true
-  stdin_open: true
+version: '2'
+services:
+  version-test:
+    labels:
+      foo: bar
+    image: nginx
+    tty: true
+    stdin_open: true
 
   
