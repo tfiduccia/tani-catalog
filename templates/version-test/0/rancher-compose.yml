@@ -1,4 +1,3 @@
-version: '2'
 .catalog:
   name: "Version Test"
   version: "1.0.0"
