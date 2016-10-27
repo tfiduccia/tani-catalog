@@ -2,6 +2,6 @@
   name: "Version Test"
   version: "6.0.0"
   description: "equal to or greater than 2.0.0"
-  upgrade_from: ">= 2.0.0"
+  upgrade_from: ">=2.0.0"
 version-test:
   scale: 1
