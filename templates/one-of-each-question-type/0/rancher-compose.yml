@@ -4,11 +4,6 @@
   description: "Description of one of each question type"
   minimum_rancher_version: v0.46.0
   questions:
-    - variable: "TEST_STRING"
-      label: "String"
-      required: false
-      default: "hello"
-      type: "string"
     - variable: "TEST_MULTILINE"
       label: "Multi-Line"
       required: false
@@ -16,6 +11,11 @@
       default: |
         Hello
         World
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      default: "hello"
+      type: "string"
     - variable: "TEST_PASSWORD"
       label: "Password"
       required: false
