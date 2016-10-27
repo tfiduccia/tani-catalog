@@ -3,4 +3,4 @@
 
 ### Info:
 
- This template has more than 9 versions.  This is the 4th version and should only be seen in version 1.2.0
+ This template will test the upgrade from field in the catalog template.  This has a upgrade from 3.0 assigned so can only upgrade from 3.0.
