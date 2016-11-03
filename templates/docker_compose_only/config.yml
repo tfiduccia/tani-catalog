@@ -1,0 +1,6 @@
+name: Affinity Test 2
+description: |
+  This template only has a docker compose and no rancher_compose
+version: 1.0.0
+category: Test
+
