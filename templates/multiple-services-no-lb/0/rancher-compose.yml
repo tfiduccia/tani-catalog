@@ -1,0 +1,13 @@
+.catalog:
+  name: "Multiple services"
+  version: "1.1.2"
+  description: "Services"
+  uuid: mulitple-services-0
+  minimum_rancher_version: v1.1.2
+Service-mysql:
+  scale: 1
+startedonce:
+  scale: 1
+ES1:
+  external_ips:
+  - 1.1.1.1

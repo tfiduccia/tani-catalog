@@ -1,0 +1,6 @@
+name: Multiple services without lb
+description: |
+  This template has a question of each type except load balancer
+version: 1.0.0
+category: Test
+
