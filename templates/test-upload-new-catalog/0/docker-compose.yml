@@ -1,0 +1,7 @@
+servicewithstartonce1:
+  ports:
+  - 90:90/tcp
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.container.start_once: 'true'
+  image: hello-world
