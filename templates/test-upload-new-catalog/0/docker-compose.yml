@@ -1,0 +1,42 @@
+version: '2'
+services:
+  Service-mysql:
+    ports:
+    - 3306:3306/tcp
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    labels:
+      io.rancher.container.pull_image: always
+    tty: true
+    image: mysql
+    stdin_open: true
+  Service-mysql2:
+    ports:
+    - 3306:3306/tcp
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    labels:
+      io.rancher.container.pull_image: always
+    tty: true
+    image: mysql
+    stdin_open: true
+  SA1:
+    image: rancher/dns-service
+    links:
+    - Service-ubuntu-global:Service-ubuntu-global
+  lb1:
+    ports:
+    - 10:10/tcp
+    labels:
+      io.rancher.container.create_agent: 'true'
+      io.rancher.container.agent.role: environmentAdmin
+    image: rancher/lb-service-haproxy:latest
+  ES1:
+    image: rancher/external-service
+  Service-ubuntu-global:
+    labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.container.pull_image: always
+    tty: true
+    image: ubuntu:14.04.3
+    stdin_open: true
