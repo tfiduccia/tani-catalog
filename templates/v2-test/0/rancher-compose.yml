@@ -1,9 +1,8 @@
-version: '2'
+.catalog:
+  name: "version: 2 test"
+  version: "1.0.0"
+  description: "More than 9 versions"
+  minimum_rancher_version: v1.1.0
 services:
-  .catalog:
-    name: "version: 2 test"
-    version: "1.0.0"
-    description: "More than 9 versions"
-    minimum_rancher_version: v1.1.0
   version2-test:
     scale: 1
