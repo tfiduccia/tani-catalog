@@ -3,6 +3,6 @@ services:
   version2-test:
     labels:
       foo2: bar2
-    image: nginx
+    image: ubuntu:14.04.3
     tty: true
     stdin_open: true
