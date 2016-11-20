@@ -1,0 +1,5 @@
+name: Version Test
+description: |
+  This template has more than 9 versions
+version: 1.0.0
+category: test
