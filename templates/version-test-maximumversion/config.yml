@@ -4,4 +4,4 @@ description: |
 version: 1.0.0
 category: test
 labels:
-  io.rancher.certified: thisshouldbeblue
+  io.rancher.certified: this should be blue
