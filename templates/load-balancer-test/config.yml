@@ -1,5 +1,5 @@
 name: Load Balancer test
 description: |
   This template contains services that test a load balancer. ABC
-version: 1.0.0
+version: 1.0
 category: Test
