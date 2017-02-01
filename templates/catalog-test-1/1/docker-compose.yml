@@ -1,16 +1,16 @@
 all-question-types:
   image: busybox
-<<<<<<< HEAD
-  labels:
-    io.rancher.container.start_once: 'true'
-=======
   tty: true
   stdin_open: true
   labels:
->>>>>>> rancher/master
-    io.rancher.container.pull_image: always
-    io.rancher.container.start_once: ‘true’
     test.string: ${TEST_STRING}
     test.multiline: ${TEST_MULTILINE}
+    test.password: ${TEST_PASSWORD}
+    test.date: ${TEST_DATE}
+    test.enum: ${TEST_ENUM}
+    test.int: ${TEST_INT}
+    test.float: ${TEST_FLOAT}
     test.boolean: ${TEST_BOOLEAN}
+    test.service: ${TEST_SERVICE}
+    test.certificate: ${TEST_CERTIFICATE}
 
