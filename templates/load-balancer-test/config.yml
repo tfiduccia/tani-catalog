@@ -1,0 +1,5 @@
+name: Load Balancer test
+description: |
+  This template contains services that test a load balancer.
+version: 1.0.0
+category: Test
