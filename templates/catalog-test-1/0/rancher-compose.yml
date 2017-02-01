@@ -1,7 +1,11 @@
 .catalog:
   name: "All Question Types"
   version: "1.0.0"
+<<<<<<< HEAD:templates/catalog-test-1/0/rancher-compose.yml
   description: "Special character test"
+=======
+  description: "All the things"
+>>>>>>> rancher/master:templates/all-question-types/0/rancher-compose.yml
   minimum_rancher_version: v0.46.0
   questions:
     - variable: "TEST_STRING"
