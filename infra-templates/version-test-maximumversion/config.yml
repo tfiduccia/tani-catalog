@@ -1,0 +1,7 @@
+name: Maximum Version Test 
+description: |
+  These template tests the Maximum Version field for catalog templates
+version: 4.0.0
+category: test
+labels:
+  io.rancher.certified: this should be blue

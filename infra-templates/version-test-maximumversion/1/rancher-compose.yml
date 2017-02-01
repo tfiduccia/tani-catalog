@@ -1,0 +1,8 @@
+.catalog:
+  name: "Version Test"
+  version: "2.0.0"
+  description: "Should only be able to see in 1.1 versions.  Not in any 1.2.0 versions."
+  minimum_rancher_version: v1.1.0
+  maximum_rancher_version: v1.4.0
+version-test:
+  scale: 1

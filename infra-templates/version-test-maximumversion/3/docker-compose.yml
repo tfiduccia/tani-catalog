@@ -1,0 +1,8 @@
+version-test:
+  labels:
+    foo: bar
+  image: nginx
+  tty: true
+  stdin_open: true
+
+  
