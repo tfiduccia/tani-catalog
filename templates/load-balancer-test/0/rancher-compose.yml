@@ -1,10 +1,10 @@
 version: '2'
-.catalog:
-  name: "Load Balancer Test"
-  version: "1.0"
-  description: "LB Services"
-  minimum_rancher_version: v1.0
 services:
+  .catalog:
+    name: "Load Balancer Test"
+    version: "1.0.0"
+    uuid: lb-service-0
+    description: "LB Services"
   nginxcontainer:
     start_on_create: true
   wp1:
