@@ -1,6 +1,6 @@
 name: Affinity Test 1achange
 description: |
-  This template sets up a service that has a label.  Then creates another service that relies on that label.  Both should end up on the same host.
+  This template sets up a service that has a label.  Then creates another service that relies on that label.  Both should end up on the same host. editing to bring it down again.
 version: 2.0.0
 category: Test
 maintainer: Tani Fiduccia
