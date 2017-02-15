@@ -3,6 +3,6 @@
   version: "4.0.0"
   description: "Minimum value is v1.4.0-rc1 and max is 1.4.999.  You should be able to see in all 1.2.0 versions."
   minimum_rancher_version: v1.4.0-rc1
-  maximum_rancher_version: v1.4.999
+  maximum_rancher_version: v1.5.999
 version-test:
   scale: 1
