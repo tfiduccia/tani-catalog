@@ -1,4 +1,4 @@
 name: Config Test 2
 description: Description in Config.yml = Config test 2 - Single template, no version, no category.
-version:
+version: 1.0
 category:
