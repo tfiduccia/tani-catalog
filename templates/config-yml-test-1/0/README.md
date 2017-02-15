@@ -1,6 +1,6 @@
-# Services with lots of different options selected.
+# Config Test 1 - From the readme.md
 
 
 ### Info:
 
- This has examples of services that have different advanced options filled out.
+ Description in Config.yml = Config test 1 - Single template, single version, single default.  Category = Test.  Happy path test.
