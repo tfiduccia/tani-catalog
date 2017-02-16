@@ -1,0 +1,5 @@
+name: Missing Icon image
+description: |
+  This test that if the icon image is missing, I can still see the template
+version: 1.0
+category: test
