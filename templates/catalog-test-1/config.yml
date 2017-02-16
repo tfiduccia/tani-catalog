@@ -1,8 +1,4 @@
 name: Adding special character here é
-description: |
-  This is also having a special character é.
+description: This is also having a special character é.
 version: 1.0.0
 category: Test
-maintainer: Tani Fiduccia
-license: 9087 license
-projectURL: https://www.amazon.com/
