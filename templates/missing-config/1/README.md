@@ -1,6 +1,6 @@
-# All Question Types
+# Missing config and image
 
 
 ### Info:
 
- This template has one question of each type.
+ This is missing the config.yml and the image icon.

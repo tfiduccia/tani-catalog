@@ -1,0 +1,7 @@
+name: Missing Readme
+description: There is no readme file, so this information should also show up inside the template for info.
+version: 1.0
+category: Test
+maintainer: Tani Fiduccia
+license: 9087 license
+projectURL: https://www.amazon.com/

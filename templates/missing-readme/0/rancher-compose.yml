@@ -1,0 +1,14 @@
+version: '2'
+.catalog:
+  name: "Services with advanced options"
+  version: "1.0"
+  description: "Services"
+  questions:
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      default: "hello"
+      type: "string"
+services:
+  missing-readme:
+    scale: 1

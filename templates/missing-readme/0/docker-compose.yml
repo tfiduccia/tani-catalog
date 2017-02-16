@@ -1,0 +1,8 @@
+version: '2'
+services:
+  missing-readme:
+    image: nginx
+    tty: true
+    stdin_open: true
+    labels:
+      test.string: ${TEST_STRING}
