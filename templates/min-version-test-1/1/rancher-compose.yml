@@ -1,0 +1,13 @@
+.catalog:
+  name: "Minimum Version Test - 1"
+  version: "2.0.0"
+  description: "More than 9 versions"
+  minimum_rancher_version: v1.5.0-pre4-rc3
+  questions:
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      default: "hello"
+      type: "string"
+version-test:
+  scale: 1
