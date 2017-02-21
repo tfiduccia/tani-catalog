@@ -1,7 +1,7 @@
 name: Multiple categories test 1
 description: This has 2 different categories.  
 version: 1.0
-category:
+categories:
   - aaa
   - test
 maintainer: Tani Fiduccia
