@@ -1,0 +1,189 @@
+kibana-vip:
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - kibana-nginx-proxy:kibana-nginx-proxy
+  stdin_open: true
+kibana-nginx-proxy:
+  labels:
+    io.rancher.sidekicks: kibana4,kibana-nginx-proxy-conf
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  image: rancher/nginx:v1.9.4-3
+  links:
+  - elasticsearch-clients:elasticsearch
+  volumes_from:
+  - kibana-nginx-proxy-conf
+kibana4:
+  environment:
+    ELASTICSEARCH_URL: http://elasticsearch:9200
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  tty: true
+  image: kibana:4.4.2
+  links:
+  - elasticsearch-clients:elasticsearch
+  stdin_open: true
+  net: container:kibana-nginx-proxy
+elasticsearch-base-datanode:
+  environment:
+    ES_HEAP_SIZE: 3g
+  labels:
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.hostname_override: container_name
+    elasticsearch.datanode.config.version: '0'
+  entrypoint:
+  - /opt/rancher/bin/run.sh
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  links:
+  - elasticsearch-masters:es-masters
+  volumes_from:
+  - elasticsearch-datavolume-datanode
+  net: container:elasticsearch-datanodes
+elasticsearch-clients:
+  labels:
+    io.rancher.sidekicks: elasticsearch-datavolume-clients,elasticsearch-base-clients
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  image: rancher/elasticsearch-conf:v0.5.0
+  links:
+  - elasticsearch-masters:es-masters
+  volumes_from:
+  - elasticsearch-datavolume-clients
+elasticsearch-datavolume-masters:
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.start_once: 'true'
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+    elasticsearch.datanode.config.version: '0'
+  entrypoint:
+  - /bin/true
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  volumes:
+  - /opt/rancher/bin
+  - /usr/share/elasticsearch/config
+  - /usr/share/elasticsearch/data
+elasticsearch-datanodes:
+  labels:
+    io.rancher.sidekicks: elasticsearch-base-datanode,elasticsearch-datavolume-datanode
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  image: rancher/elasticsearch-conf:v0.5.0
+  links:
+  - elasticsearch-masters:es-masters
+  volumes_from:
+  - elasticsearch-datavolume-datanode
+elasticsearch-base-clients:
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    elasticsearch.client.config.version: '0'
+    io.rancher.container.hostname_override: container_name
+  entrypoint:
+  - /opt/rancher/bin/run.sh
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  links:
+  - elasticsearch-masters:es-masters
+  volumes_from:
+  - elasticsearch-datavolume-clients
+  net: container:elasticsearch-clients
+elasticsearch-datavolume-clients:
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.container.start_once: 'true'
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+    elasticsearch.datanode.config.version: '0'
+  entrypoint:
+  - /bin/true
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  links:
+  - elasticsearch-masters:es-masters
+  volumes:
+  - /opt/rancher/bin
+  - /usr/share/elasticsearch/config
+  - /usr/share/elasticsearch/data
+kibana-nginx-proxy-conf:
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  command:
+  - -backend=rancher
+  - --prefix=/2015-07-25
+  image: rancher/nginx-conf:v0.2.0
+  links:
+  - elasticsearch-clients:elasticsearch
+elasticsearch-datavolume-datanode:
+  labels:
+    io.rancher.container.start_once: 'true'
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    elasticsearch.datanode.config.version: '0'
+  entrypoint:
+  - /bin/true
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  links:
+  - elasticsearch-masters:es-masters
+  volumes:
+  - /opt/rancher/bin
+  - /usr/share/elasticsearch/config
+  - /usr/share/elasticsearch/data
+php-mongo2es:
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  tty: true
+  image: bitninja/php-mongo2es
+  links:
+  - elasticsearch-clients:elasticsearch
+  stdin_open: true
+elasticsearch-masters:
+  labels:
+    io.rancher.sidekicks: elasticsearch-datavolume-masters,elasticsearch-base-master
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  image: rancher/elasticsearch-conf:v0.5.0
+  volumes_from:
+  - elasticsearch-datavolume-masters
+elasticsearch-base-master:
+  labels:
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:container_label_soft: io.rancher.stack_service.name=$${stack_name}/elasticsearch-datanodes
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    elasticsearch.master.config.version: '0'
+    io.rancher.container.hostname_override: container_name
+  entrypoint:
+  - /opt/rancher/bin/run.sh
+  image: bitninja/bitninja-elasticsearch:2.4.2-1
+  volumes_from:
+  - elasticsearch-datavolume-masters
+  net: container:elasticsearch-masters
+elasticsearch-kopf:
+  environment:
+    KOPF_ES_SERVERS: es-clients:9200
+    KOPF_SERVER_NAME: es
+  labels:
+    io.rancher.scheduler.affinity:host_label_soft: node_role=storage
+    io.rancher.container.hostname_override: container_name
+  image: rancher/kopf:v0.4.0
+  links:
+  - elasticsearch-clients:es-clients

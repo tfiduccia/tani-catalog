@@ -1,0 +1,6 @@
+name: Bug 8050 test
+description: |
+  V1 template not working
+version: 1.0.0
+category: Test
+

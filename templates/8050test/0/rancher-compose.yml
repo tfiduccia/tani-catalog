@@ -1,0 +1,93 @@
+.catalog:
+  name: IncidentStore
+  version: 0.3.0
+  description: |
+    Changed from the original elasticsearch docker to bitninja/bitninja-elasticsearch:2.4.2-1
+kibana-vip:
+  scale: 1
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 2000
+    healthy_threshold: 2
+kibana-nginx-proxy:
+  scale: 1
+  metadata:
+    nginx: &id001
+      conf:
+        servername: kibana
+        upstream_port: 5601
+        users: admin
+      users:
+        '0':
+          password: '{PLAIN}aaa'
+          username: aaa
+kibana4:
+  scale: 1
+  metadata:
+    nginx: *id001
+elasticsearch-base-datanode:
+  scale: 1
+  metadata:
+    elasticsearch: &id002
+      yml:
+        cluster.name: es
+        http.enabled: 'false'
+        network.host: _site_
+        node.data: 'true'
+        node.master: 'false'
+        node.name: $${HOSTNAME}
+elasticsearch-clients:
+  scale: 1
+  metadata:
+    elasticsearch: &id003
+      yml:
+        cluster.name: es
+        network.host: _site_
+        node.data: 'false'
+        node.master: 'false'
+        node.name: $${HOSTNAME}
+elasticsearch-datavolume-masters:
+  scale: 1
+  metadata:
+    elasticsearch: &id004
+      yml:
+        cluster.name: es
+        network.host: _site_
+        node.data: 'false'
+        node.master: 'true'
+        node.name: $${HOSTNAME}
+elasticsearch-datanodes:
+  scale: 1
+  metadata:
+    elasticsearch: *id002
+elasticsearch-base-clients:
+  scale: 1
+  metadata:
+    elasticsearch: *id003
+elasticsearch-datavolume-clients:
+  scale: 1
+  metadata:
+    elasticsearch: *id003
+kibana-nginx-proxy-conf:
+  scale: 1
+  metadata:
+    nginx: *id001
+elasticsearch-datavolume-datanode:
+  scale: 1
+  metadata:
+    elasticsearch: *id002
+php-mongo2es:
+  scale: 1
+elasticsearch-masters:
+  scale: 1
+  metadata:
+    elasticsearch: *id004
+elasticsearch-base-master:
+  scale: 1
+  metadata:
+    elasticsearch: *id004
+elasticsearch-kopf:
+  scale: 1
