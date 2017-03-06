@@ -1,0 +1,13 @@
+version: '2'
+services:
+  .catalog:
+    version: 1
+  my-service:
+    scale:1
+  questions:
+      - variable: MY_VNAME
+        description: Specify the name of the site.
+        label: Site domain name
+        required: true
+        default: mysite.com
+        type: string

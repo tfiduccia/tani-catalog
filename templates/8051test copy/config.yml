@@ -1,0 +1,6 @@
+name: Bug 8051 test
+description: |
+  variable not working
+version: 1.0.0
+category: Test
+

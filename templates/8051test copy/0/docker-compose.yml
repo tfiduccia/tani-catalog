@@ -1,0 +1,11 @@
+version: '2'
+services:
+  myservice:
+    build: https://github.com/mycontainer.git#master
+    environment:
+      MY_VNAME: ${MY_VNAME}
+      MY_SNAME: othername
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
