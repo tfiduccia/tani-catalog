@@ -1,0 +1,13 @@
+version: '2'
+services:
+  wordpress:
+    image: rancher/lb-service-haproxy:v0.6.2
+    ports:
+    - 443:443/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
+  collector:
+    image: wordpress
+    labels:
+      loadbalancer.https: 'true'
