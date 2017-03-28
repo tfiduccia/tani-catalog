@@ -3,4 +3,4 @@
 
 ### Info:
 
- Add hostname
+ Edit hostname
