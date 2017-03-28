@@ -3,4 +3,4 @@ services:
   collector:
     image: wordpress
     labels:
-      loadbalancer.https: true
+      loadbalancer.http: true

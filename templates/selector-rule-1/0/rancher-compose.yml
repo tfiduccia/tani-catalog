@@ -14,9 +14,9 @@ services:
         path: ''
         priority: 1
         protocol: http
-        selector: loadbalancer.https=true
-        source_port: 443
-        target_port: 443
+        selector: loadbalancer.http=true
+        source_port: 80
+        target_port: 80
     health_check:
       healthy_threshold: 2
       response_timeout: 2000

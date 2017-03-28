@@ -10,7 +10,7 @@ services:
     lb_config:
       port_rules:
       - hostname: test-1.example.com
-        target_port: 80
+        target_port: 90
     health_check:
       healthy_threshold: 2
       response_timeout: 2000
