@@ -1,5 +1,5 @@
-name: Selector Rule Test 2
-description: Update the hostname inside a selector rule with just a Load Balancer
+name: Selector Rule Test 1
+description: Testing the addition of a selector rule
 version: 1.0
 category: Test
 maintainer: Tani Fiduccia
