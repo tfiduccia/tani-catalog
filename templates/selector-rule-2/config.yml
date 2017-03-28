@@ -1,0 +1,7 @@
+name: Selector Rule Test 2
+description: Update the hostname inside a selector rule
+version: 1.0
+category: Test
+maintainer: Tani Fiduccia
+license: 9087 license
+projectURL: https://www.amazon.com/
