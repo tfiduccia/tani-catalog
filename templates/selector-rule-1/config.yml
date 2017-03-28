@@ -1,5 +1,5 @@
-name: Upgrade Hostname
-description: Upgrade the hostname in a loadbalancer 
+name: Selector Rule Test 1
+description: Testing the addition of a selector rule
 version: 1.0
 category: Test
 maintainer: Tani Fiduccia
