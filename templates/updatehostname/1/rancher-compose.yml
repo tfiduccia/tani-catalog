@@ -16,6 +16,7 @@ services:
     lb_config:
       certs: []
       port_rules:
+      - hostname: test-2.example.com
       - path: ''
         priority: 1
         protocol: http
