@@ -1,5 +1,5 @@
-name: Selector Rule Test 1
-description: Testing the addition of a selector rule
+name: Selector Rule Test 3
+description: Testing changing hostname through a service's lb_config
 version: 1.0
 category: Test
 maintainer: Tani Fiduccia
