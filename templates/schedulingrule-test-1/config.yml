@@ -1,0 +1,7 @@
+name: Scheduling rule test 1
+description: |
+  Checking that rc10 is lower than rc3 so it should still be available
+version: 1.0.0
+category: test
+labels:
+  io.rancher.certified: partner
