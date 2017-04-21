@@ -10,4 +10,5 @@
       default: "hello"
       type: "string"
 version-test:
+  milli_cpu_reservation: 100
   scale: 2
