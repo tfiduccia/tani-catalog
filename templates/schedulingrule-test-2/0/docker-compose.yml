@@ -1,0 +1,10 @@
+version-test:
+  image: nginx
+  tty: true
+  stdin_open: true
+  labels:
+    test.string: ${TEST_STRING}
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=java-all-projects
+    service: java-all
+
+ 
