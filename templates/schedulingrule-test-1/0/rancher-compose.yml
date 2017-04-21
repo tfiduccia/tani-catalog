@@ -10,4 +10,4 @@
       default: "hello"
       type: "string"
 version-test:
-  scale: 1
+  scale: 2
