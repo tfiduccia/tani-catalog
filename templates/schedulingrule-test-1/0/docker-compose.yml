@@ -4,8 +4,8 @@ version-test:
   stdin_open: true
   labels:
     test.string: ${TEST_STRING}
-    io.rancher.scheduler.affinity:host_label: foo=bar
-    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=default/service1
+    io.rancher.scheduler.affinity:host_label: storage=true
+    io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=storage/gluster
 
 
  
