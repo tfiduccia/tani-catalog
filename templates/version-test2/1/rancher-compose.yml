@@ -1,0 +1,12 @@
+.catalog:
+  name: "Version Test"
+  version: "1.2"
+  description: "More than 9 versions"
+  questions:
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      default: "hello"
+      type: "string"
+version-test:
+  scale: 1

@@ -1,0 +1,7 @@
+name: Version Test 2
+description: |
+  This template has more than 9 versions
+version: 1.0.0
+category: test
+labels:
+  io.rancher.certified: rancher
