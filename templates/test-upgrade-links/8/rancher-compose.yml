@@ -3,4 +3,4 @@
   version: "1.0.8"
   description: "More than 9 versions"
   minimum_rancher_version: v0.46.0
-  upgrade_from:
+  upgrade_from: ">=v1.0.1"
