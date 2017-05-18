@@ -1,5 +1,5 @@
 name: Upgrade_from Test 
 description: |
-  This template has more than 9 versions
+  This template test the upgrade_from field in rancher compose.
 version: 1.0.10
 category: Test
