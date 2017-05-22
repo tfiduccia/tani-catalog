@@ -4,6 +4,12 @@ version: '2'
   version: "1.0.0"
   uuid: lb-service-0
   description: "LB Services"
+  questions:
+    - variable: "TEST_STRING"
+      label: "String"
+      required: false
+      default: "hello"
+      type: "string"
 services:
   nginxcontainer:
     start_on_create: true
