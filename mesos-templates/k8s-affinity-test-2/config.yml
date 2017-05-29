@@ -1,0 +1,6 @@
+name: Affinity Test 2
+description: |
+  This template puts a service one on each host.
+version: 1.0.0
+category: Test
+

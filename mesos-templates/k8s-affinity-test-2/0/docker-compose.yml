@@ -1,0 +1,7 @@
+serviceoneachhost:
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+  tty: true
+  image: nginx
+  stdin_open: true
