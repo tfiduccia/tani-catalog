@@ -1,0 +1,18 @@
+version: '2'
+.catalog:
+  name: "sidekick test"
+  version: "1.0.0"
+  description: "Sidekick test 1"
+services:
+  sidekick3:
+    scale: 2
+    start_on_create: true
+  sidekick1:
+    scale: 2
+    start_on_create: true
+  sidekick2:
+    scale: 2
+    start_on_create: true
+  priservice1:
+    scale: 2
+    start_on_create: true

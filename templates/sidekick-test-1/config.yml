@@ -1,0 +1,5 @@
+name: Sidekick Test 1
+description: |
+  This test will add a service with 3 sidekicks
+version: 1.0.0
+category: test

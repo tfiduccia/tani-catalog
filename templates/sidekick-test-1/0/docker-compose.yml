@@ -1,0 +1,27 @@
+version: '2'
+services:
+  sidekick3:
+    image: nginx
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  sidekick1:
+    image: ubuntu:14.04.3
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  sidekick2:
+    image: ubuntu:14.04.3
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  priservice1:
+    image: nginx
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.sidekicks: sidekick1,sidekick2,sidekick3
