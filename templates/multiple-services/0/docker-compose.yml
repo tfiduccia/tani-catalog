@@ -32,11 +32,9 @@ services:
   ES1:
     image: rancher/external-service
   Service-ubuntu-global:
-    log_driver: ''
     labels:
       io.rancher.scheduler.global: 'true'
       io.rancher.container.pull_image: always
     tty: true
-    log_opt: {}
     image: ubuntu:14.04.3
     stdin_open: true
