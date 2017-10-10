@@ -1,61 +1,15 @@
-postgres-data:
-  image: busybox
-  labels:
-      io.rancher.container.pull_image: always
-      io.rancher.container.hostname_override: container_name
-      io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.database.name=${HOST_BD}
-      io.rancher.container.start_once: true
-  net: none
-  volumes:
-    - /data/${CLIENT_DOMAIN}/database:/var/lib/postgresql
-    - /etc/localtime:/etc/localtime:ro
-postgres:
-  environment:
-    REPLICATION_PORT: '5432'
-    REPLICATION_SSLMODE: prefer
-    REPLICATION_USER: repuser
-    REPLICATION_PASS: reppass
-    DB_NAME: myproduct
-    DB_PASS: myproduct
-    DB_USER: myproduct
-  image: cd.mycompany.com:5000/myproduct-postgres:1.14.2
-  labels:
-    io.rancher.container.pull_image: always
-    io.rancher.container.hostname_override: container_name
-    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.database.name=${HOST_BD}
-    io.rancher.sidekicks: postgres-data
-  tty: true
+nginx:
+  image: nginx
   stdin_open: true
-  volumes_from:
-    - 'postgres-data'
-myproduct:
-  environment:
-    CLIENT_DOMAIN: ${CLIENT_DOMAIN}
-    CLIENT_SIZE: ${CLIENT_SIZE}
-    DATABASE_HOST: postgres
-  log_driver: gelf
+  tty: true
   labels:
     io.rancher.container.pull_image: always
-    io.rancher.container.hostname_override: container_name
-    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.server.name=${HOST_SERVER}
-  log_opt:
-    gelf-address: udp://${GRAYLOG_LINK}:${GRAYLOG_PORT_LINK}
-    env: "Product"
-    tag: "${CLIENT_DOMAIN}"
-  image: cd.mycompany.com:5000/myproduct-server:1.14.2
-  links:
-    - postgres:postgres
-  restart: always
-  volumes:
-    - /opt/myproduct/application
-    - /etc/localtime:/etc/localtime:ro 
-balanceador:
+    io.rancher.scheduler.global: 'true'
+    test.string: ${TEST_STRING}
+balancer:
+  image: rancher/lb-service-haproxy:v0.5.9
   ports:
-    - ${PORT}:8080
-  tty: true
-  image: rancher/load-balancer-service
-  links:
-    - myproduct:myproduct
-  stdin_open: true
+  - 80:80/tcp
   labels:
-    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.lb.name=${HOST_LB}
+    io.rancher.container.agent.role: environmentAdmin
+    io.rancher.container.create_agent: 'true'

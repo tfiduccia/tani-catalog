@@ -4,88 +4,26 @@
   description: "Product 1.14.2"
   uuid: myproduct
   minimum_rancher_version: v0.44.0
-  questions:
-      - variable: "INSTANCES_SERVER"
-        label: "Number of Product server instances"
-        description: "Number of server instances"
-        type: "int"
-        default: 1
-        required: true
-      - variable: "PORT"
-        label: "Port"
-        description: "Load balancer port"
-        type: "int"
-        default: 80
-        required: true
-      - variable: "GRAYLOG_LINK"
-        description: "IP address of the service Graylog"
-        label: "IP address Graylog service"
-        required: true
-        type: "string"
-      - variable: "GRAYLOG_PORT_LINK"
-        description: "Port of the service Graylog"
-        label: "Port Graylog service"
-        required: true
-        type: "string"
-      - variable: "CLIENT_DOMAIN"
-        label: "Domain of the Client"
-        description: "Domain of the Client"
-        type: "string"
-        required: true
-      - variable: "CLIENT_SIZE"
-        label: "Client Size"
-        description: "Size of the Client. An small Client will be deployed using maximum 1GB of RAM. A medium Client will be deployed using maximum 2GB of RAM. A large Client will be deployed using maximum 4GB of RAM."
-        type: "enum"
-        required: true
-        options:
-           - Small
-           - Medium
-           - Large
-      - variable: "HOST_LB"
-        label: "Load balancer host"
-        description: "Host in which the load balancer will be deployed"
-        type: "string"
-        default: all
-        required: true
-      - variable: "HOST_SERVER"
-        label: "Server host"
-        description: "Host in which the server will be deployed"
-        type: "string"
-        default: all
-        required: true
-      - variable: "HOST_BD"
-        label: "Database host"
-        description: "Host in which the database will be deployed"
-        type: "string"
-        default: all
-        required: true
-myproduct:
-  scale: ${INSTANCES_SERVER}
+nginx:
+  scale: 1
+  start_on_create: true
+balancer:
+  scale: 1
+  start_on_create: true
+  lb_config:
+    certs: []
+    port_rules:
+    - path: ''
+      priority: 1
+      protocol: http
+      service: nginxcontainer
+      source_port: 90
+      target_port: 80
   health_check:
-    port: 8080
-    interval: 2000
-    unhealthy_threshold: 3
-    request_line: GET /detect HTTP/1.0
     healthy_threshold: 2
     response_timeout: 2000
-postgres:
-  scale: 1
-  health_check:
-    port: 1620
-    interval: 2000
-    unhealthy_threshold: 3
-    healthy_threshold: 2
-    response_timeout: 2000
-balanceador:
-  scale: 1
-  load_balancer_config:
-    haproxy_config: {}
-  health_check:
     port: 42
-    interval: 2000
     unhealthy_threshold: 3
-    healthy_threshold: 2
-    response_timeout: 2000
+    interval: 2000
   metadata:
-    client_domain: ${CLIENT_DOMAIN}
     prd_version: "1.14.2"
