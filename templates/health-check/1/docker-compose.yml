@@ -1,0 +1,16 @@
+healthcheckfail:
+  log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  log_opt: {}
+  image: nginx
+  stdin_open: true
+healthcheckpass:
+  log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  log_opt: {}
+  image: nginx
+  stdin_open: true
