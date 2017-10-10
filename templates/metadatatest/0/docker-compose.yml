@@ -5,7 +5,6 @@ nginx:
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.global: 'true'
-    test.string: ${TEST_STRING}
 balancer:
   image: rancher/lb-service-haproxy:v0.5.9
   ports:
