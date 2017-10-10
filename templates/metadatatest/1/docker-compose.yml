@@ -1,0 +1,62 @@
+postgres-data:
+  image: busybox
+  labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.database.name=${HOST_BD}
+      io.rancher.container.start_once: true
+  net: none
+  volumes:
+    - /data/${CLIENT_DOMAIN}/database:/var/lib/postgresql
+    - /etc/localtime:/etc/localtime:ro
+postgres:
+  environment:
+    REPLICATION_PORT: '5432'
+    REPLICATION_SSLMODE: prefer
+    REPLICATION_USER: repuser
+    REPLICATION_PASS: reppass
+    DB_NAME: myproduct
+    DB_PASS: myproduct
+    DB_USER: myproduct
+    prd_version: "1.16.0"
+  image: cd.mycompany.com:5000/myproduct-postgres:1.16.0
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.database.name=${HOST_BD}
+    io.rancher.sidekicks: postgres-data
+  tty: true
+  stdin_open: true
+  volumes_from:
+    - 'postgres-data'
+myproduct:
+  environment:
+    CLIENT_DOMAIN: ${CLIENT_DOMAIN}
+    CLIENT_SIZE: ${CLIENT_SIZE}
+    DATABASE_HOST: postgres
+  log_driver: gelf
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.server.name=${HOST_SERVER}
+  log_opt:
+    gelf-address: udp://${GRAYLOG_LINK}:${GRAYLOG_PORT_LINK}
+    env: "myproduct"
+    tag: "${CLIENT_DOMAIN}"
+  image: cd.mycompany.com:5000/myproduct-server:1.16.0
+  links:
+    - postgres:postgres
+  restart: always
+  volumes:
+    - /opt/myproduct/application
+    - /etc/localtime:/etc/localtime:ro  
+balanceador:
+  ports:
+    - ${PORT}:8080
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+    - myproduct:myproduct
+  stdin_open: true
+  labels:
+    io.rancher.scheduler.affinity:host_label_soft: com.mycompany.myproduct.lb.name=${HOST_LB}
