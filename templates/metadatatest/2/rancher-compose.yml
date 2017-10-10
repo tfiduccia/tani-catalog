@@ -1,0 +1,69 @@
+.catalog:
+  name: "Product"
+  version: "2.0.0"
+  description: "Product 2.0.0"
+  uuid: myproduct
+  minimum_rancher_version: v0.44.0
+  questions:
+      - variable: "INSTANCES_SERVER"
+        label: "Number of Product server instances"
+        description: "Number of server instances"
+        type: "int"
+        default: 1
+        required: true
+      - variable: "PORT"
+        label: "Port"
+        description: "Load balancer port"
+        type: "int"
+        default: 80
+        required: true
+      - variable: "GRAYLOG_LINK"
+        description: "IP address of the service Graylog"
+        label: "IP address Graylog service"
+        required: true
+        type: "string"
+      - variable: "GRAYLOG_PORT_LINK"
+        description: "Port of the service Graylog"
+        label: "Port Graylog service"
+        required: true
+        type: "string"
+      - variable: "CLIENT_DOMAIN"
+        label: "Domain of the client"
+        description: "Domain of the client"
+        type: "string"
+        required: true
+      - variable: "CLIENT_SIZE"
+        label: "Client Size"
+        description: "Size of the client. An small Client will be deployed using maximum 1GB of RAM. A medium Client will be deployed using maximum 2GB of RAM. A large Client will be deployed using maximum 4GB of RAM."
+        type: "enum"
+        required: true
+        options:
+           - Small
+           - Medium
+           - Large
+      - variable: "HOST_LB"
+        label: "Load balancer host"
+        description: "Host in which the load balancer will be deployed"
+        type: "string"
+        default: all
+        required: true
+      - variable: "HOST_SERVER"
+        label: "Server host"
+        description: "Host in which the server will be deployed"
+        type: "string"
+        default: all
+        required: true
+      - variable: "HOST_BD"
+        label: "Database host"
+        description: "Host in which the database will be deployed"
+        type: "string"
+        default: all
+        required: true
+postgres:
+  scale: 1
+  health_check:
+    port: 1620
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
