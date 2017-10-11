@@ -1,0 +1,43 @@
+version: "2"
+services:
+  .catalog:
+    name: "Product"
+    version: "1.14.2"
+    description: "Product 1.14.2"
+    uuid: myproduct
+    minimum_rancher_version: v0.44.0
+  lbtest:
+    image: rancher/lb-service-haproxy:v0.8.1
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: "true"
+    ports:
+    - 1110:1110/tcp
+    stop_signal: SIGTERM
+    restart: always
+    lb_config:
+      port_rules:
+      - source_port: 1110
+        protocol: http
+        service: service
+        target_port: 80
+        priority: 1
+    health_check:
+      healthy_threshold: 2
+      initializing_timeout: 60000
+      interval: 2000
+      port: 42
+      response_timeout: 2000
+      unhealthy_threshold: 3
+    scale: 1
+    metadata:
+      prd_version: "1.14.2"
+  service:
+    image: nginx
+    labels:
+      io.rancher.container.pull_image: always
+    stop_signal: SIGTERM
+    restart: always
+    stdin_open: true
+    tty: true
+    scale: 1
