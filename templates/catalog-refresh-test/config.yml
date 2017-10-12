@@ -1,0 +1,6 @@
+name: Catalog refresh Test
+description:  |
+  Testing to see if refresh works
+version: 1.2
+category: Test
+maintainer: "tani"
