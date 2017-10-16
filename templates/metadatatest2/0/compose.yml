@@ -1,10 +1,10 @@
 version: "2"
+catalog:
+  name: "Product"
+  version: "1.14.2"
+  description: "Product 1.14.2"
+  minimum_rancher_version: v0.44.0
 services:
-  .catalog:
-    name: "Product"
-    version: "1.14.2"
-    description: "Product 1.14.2"
-    minimum_rancher_version: v0.44.0
   lbtest:
     image: rancher/lb-service-haproxy:v0.8.1
     labels:
