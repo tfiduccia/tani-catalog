@@ -1,0 +1,63 @@
+version: '2'
+services:
+  logstash-collector-config:
+    image: rancher/logstash-config:v0.2.0
+    links:
+    - redis:redis
+    labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.container.hostname_override: container_name
+  elasticsearch:
+    image: rancher/external-service
+  logstash-collector:
+    image: docker.elastic.co/logstash/logstash:6.2.3
+    stdin_open: true
+    tty: true
+    links:
+    - redis:redis
+    volumes_from:
+    - logstash-collector-config
+    ports:
+    - 5000:5000/udp
+    - 6000:6000/tcp
+    command:
+    - /bin/bash
+    - -c
+    - logstash-plugin install logstash-output-datadog_logs && logstash -f /etc/logstash
+    labels:
+      io.rancher.sidekicks: logstash-collector-config
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:host_label_ne: load_balancer=true
+      io.rancher.scheduler.global: 'true'
+  logstash-indexer:
+    image: docker.elastic.co/logstash/logstash:6.2.3
+    stdin_open: true
+    tty: true
+    links:
+    - elasticsearch:elasticsearch
+    - redis:redis
+    volumes_from:
+    - logstash-indexer-config
+    command:
+    - /bin/bash
+    - -c
+    - logstash-plugin install logstash-output-datadog_logs && logstash -f /etc/logstash
+    labels:
+      io.rancher.sidekicks: logstash-indexer-config
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:host_label_ne: load_balancer=true
+  redis:
+    image: redis:3.2.6-alpine
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.scheduler.affinity:host_label_ne: load_balancer=true
+  logstash-indexer-config:
+    image: rancher/logstash-config:v0.2.0
+    links:
+    - elasticsearch:elasticsearch
+    - redis:redis
+    labels:
+      io.rancher.container.hostname_override: container_name

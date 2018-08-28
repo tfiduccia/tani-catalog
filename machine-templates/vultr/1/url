@@ -1,1 +1,23 @@
 https://github.com/janeczku/docker-machine-vultr/releases/download/v1.0.5/docker-machine-driver-vultr-v1.0.5-linux-amd64.tar.gz
+
+Tani's levels of bad to good - 
+
+horrible
+god-awful
+terrible
+awful
+bad
+not-good
+meh
+ok
+fine
+I like it
+
+Labels for 2.0:
+Cluster bugs = Cluster
+Nodes = Host or machine
+Projects = Projects
+Namespace = Stack
+Pod/Workload = Service
+
+

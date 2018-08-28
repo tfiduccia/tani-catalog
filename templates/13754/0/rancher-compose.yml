@@ -1,0 +1,68 @@
+version: '2'
+services:
+  logstash-collector-config:
+    metadata:
+      logstash: &id001
+        inputs: |-
+          udp {
+            port => 5000
+            codec => "json"
+          }
+          tcp {
+            port => 6000
+            codec => "json"
+          }
+        outputs: |-
+          redis {
+            host => "redis.rancher.internal"
+            port => "6379"
+            data_type => "list"
+            key => "logstash"
+          }
+    start_on_create: true
+  elasticsearch:
+    start_on_create: true
+  logstash-collector:
+    metadata:
+      logstash: *id001
+    start_on_create: true
+  logstash-indexer:
+    metadata:
+      logstash: &id002
+        filters: |-
+          if [short_message] =~ /^\s*$$/ {
+            drop { }
+          }
+          mutate {
+            gsub => [
+                "short_message", "\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]", "",
+                "short_message", "\[\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z\]", ""
+            ]
+          }
+        inputs: |-
+          redis {
+            host => "redis.rancher.internal"
+            port => "6379"
+            data_type => "list"
+            key => "logstash"
+          }
+        outputs: |-
+          elasticsearch {
+            hosts => ["es-master.es-cluster:9200"]
+          }
+          stdout {
+            codec => rubydebug
+          }
+          datadog_logs {
+            api_key => "asdf1234567890"
+          }
+    scale: 2
+    start_on_create: true
+  redis:
+    scale: 1
+    start_on_create: true
+  logstash-indexer-config:
+    metadata:
+      logstash: *id002
+    scale: 2
+    start_on_create: true
