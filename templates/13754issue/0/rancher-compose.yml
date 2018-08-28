@@ -1,5 +1,8 @@
 version: '2'
 services:
+  .catalog:
+    name: "13754issue"
+    version: "1.0.0"
   logstash-collector-config:
     metadata:
       logstash: &id001
