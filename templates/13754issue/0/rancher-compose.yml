@@ -1,6 +1,6 @@
 version: '2'
 services:
-  catalog:
+  .catalog:
     name: "13754issue"
     version: "1.0.0"
     description: "more issue"
