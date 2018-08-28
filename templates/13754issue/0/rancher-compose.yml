@@ -1,9 +1,9 @@
 version: '2'
-catalog:
-  name: "13754issue"
-  version: "1.0.0"
-  description: "more issue"
 services:
+  catalog:
+    name: "13754issue"
+    version: "1.0.0"
+    description: "more issue"
  logstash-collector-config:
     metadata:
       logstash: &id001
